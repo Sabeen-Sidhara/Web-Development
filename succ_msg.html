@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+{% load static %}
+<div class="jumbotron">
+  <h1>Solar Panel Category Prediction </h1>
+  <div class="fieldWrapper">
+    <h2>For the values</h2>
+    <p>solar_irradiance:{{data_solar_irradiance}}</p>
+    <p>temperature:{{data_temperature}}</p>
+    <p>humidity:{{data_humidity}}</p>
+    <p>wind_speed:{{data_wind_speed}}</p>
+    <p>cloud_cover:{{data_cloud_cover}}</p>
+    <p>panel_tilt_angle:{{data_panel_tilt_angle}}</p>
+    <br>
+
+      {% if out == 0 %}
+        <p>Solar Panel Performance is : <b>high</b></p>
+      {% elif out == 1 %}
+        <p>Solar Panel Performance is : <b>low</b></p>
+      {% else %}
+        <p>Solar Panel Performance is :<b>medium</b></p>
+
+      {% endif %}
+
+    <a  href="{% url 'ckdApp:ckd' %}">CKD Predicition</a>
+    <br>
+</div>
+{% endblock %}
